@@ -1,6 +1,6 @@
 import os
 
-print("\nBLACKJACK\n\n")
+print("\nBLACKJACK\n")
 
 
 def clear():
@@ -27,6 +27,18 @@ def get_username():
     return username
 
 
+def instructions():
+    print("\nInstructions\n")
+    print("Step 1: Put down your bet\n")
+    print("")
+    print("Step 2: Get your cards dealt\n")
+    print("Step 3: Decide when you want to 'hit' or 'stand'\n")
+    print("Step 4(a): 'Hit'\n")
+    print("Step 4(b): 'Stand'\n")
+    print("Step 5: Understand the opponent's hand\n")
+    print("Step 6: The outcome\n")
+
+
 def instructions_choice():
     print("\nWould you like to start game or read instructions?")
 
@@ -40,6 +52,7 @@ def instructions_choice():
         elif choice == "i":
             print("instructions")
             clear()
+            instructions()
             break
         else:
             print("-------\nInvalid response\n")
