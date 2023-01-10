@@ -15,7 +15,7 @@ def get_username():
         username = input("Please enter your username - ")
 
         if len(username) >= 3 and len(username) < 11:
-            print(f"\nWelcome {username}")
+            print(f"\nWelcome {username}!")
             break
         else:
             print("Invalid username, please make is between 3-10 characters")
@@ -23,4 +23,23 @@ def get_username():
     return username
 
 
+def instructions_choice():
+    print("\nWould you like to start game or read instructions?")
+
+    while True:
+        choice = input("Press [s] to start or [i] to view instructions - ")
+
+        if choice == "s":
+            print("game")
+            break
+        elif choice == "i":
+            print("instructions")
+            break
+        else:
+            print("-------\nInvalid response\n")
+    
+    return choice
+
+
 get_username()
+instructions_choice()
