@@ -1,6 +1,6 @@
 
 
-print("BLACKJACK")
+print("\nBLACKJACK\n\n")
 
 
 def get_username():
@@ -10,15 +10,16 @@ def get_username():
     3 to 10 characters long 
     """
     while True:
-        print("Please enter your username\n")
-        print("Please make sure username is 3 - 10 characters")
+        print("Please make sure your username is 3 - 10 characters")
 
-        username = input()
+        username = input("Please enter your username - ")
 
-        if len(username) >= 3:
-            print(f"Welcome {username}")
+        if len(username) >= 3 and len(username) < 11:
+            print(f"\nWelcome {username}")
             break
-            
+        else:
+            print("Invalid username, please make is between 3-10 characters")
+
     return username
 
 
