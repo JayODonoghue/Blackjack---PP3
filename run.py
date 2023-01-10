@@ -1,6 +1,10 @@
-
+import os
 
 print("\nBLACKJACK\n\n")
+
+
+def clear():
+    os.system('clear')
 
 
 def get_username():
@@ -31,9 +35,11 @@ def instructions_choice():
 
         if choice == "s":
             print("game")
+            clear()
             break
         elif choice == "i":
             print("instructions")
+            clear()
             break
         else:
             print("-------\nInvalid response\n")
