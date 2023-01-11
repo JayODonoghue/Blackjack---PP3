@@ -34,9 +34,19 @@ def start_game():
     print("The player may not place a wager that exceeds their total coins.")
     print("The player's wager must be a number that is a multiple of 5.\n")
     while True:
-        wager = input("Place wager - eg 10, 15, 20 -  ")
-    return wager
+        try:
+            wager = input("Place wager - eg 10, 15, 20 -  ")
+            wager = int(wager)
 
+            if wager < 10:
+                print("A minimum bet of 10 coins is required")
+            elif wager > coins:
+                print("You do not have enough funds to place this bet")
+            elif wager % 5 == 0:
+                print("Must be a multiple of 5")
+        except ValueError as e:
+            print(f"Invalid data: {e}, please try again.")
+    
 
 def instructions():
     print("\nInstructions\n")
