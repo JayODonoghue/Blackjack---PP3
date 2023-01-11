@@ -37,6 +37,21 @@ def instructions():
     print("Step 4(b): 'Stand'\n")
     print("Step 5: Understand the opponent's hand\n")
     print("Step 6: The outcome\n")
+    print("Would you like to start the game?")
+    while True:
+        start = input("Press [s] to start or [r] to return to main menu -  ")
+
+        if start == "s":
+            clear()
+            break
+        elif start == "r":
+            clear()
+            get_username()
+            break
+        else:
+            print("-------\nInvalid response\n")
+    
+    return start
 
 
 def instructions_choice():
@@ -46,11 +61,9 @@ def instructions_choice():
         choice = input("Press [s] to start or [i] to view instructions - ")
 
         if choice == "s":
-            print("game")
             clear()
             break
         elif choice == "i":
-            print("instructions")
             clear()
             instructions()
             break
