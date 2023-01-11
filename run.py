@@ -1,7 +1,5 @@
 import os
 
-print("\nBLACKJACK\n")
-
 
 def clear():
     os.system('clear')
@@ -13,6 +11,7 @@ def get_username():
     A while loop collects data from the user that will be a string
     3 to 10 characters long 
     """
+    print("\nBLACKJACK\n")
     print("Please make sure your username is 3 - 10 characters")
 
     while True:    
@@ -25,6 +24,18 @@ def get_username():
             print("-------\nInvalid username, 3-10 characters required")
 
     return username
+
+
+def start_game():
+    coins = 1000
+    print(f"{username}'s total coins = {coins}\n\n")
+    print("Place your bets\n")
+    print("A minimum bet of 10 coins per hand is required.")
+    print("The player may not place a wager that exceeds their total coins.")
+    print("The player's wager must be a number that is a multiple of 5.\n")
+    while True:
+        wager = input("Place wager - eg 10, 15, 20 -  ")
+    return wager
 
 
 def instructions():
@@ -43,10 +54,12 @@ def instructions():
 
         if start == "s":
             clear()
+            start_game()
             break
         elif start == "r":
             clear()
             get_username()
+            instructions_choice()
             break
         else:
             print("-------\nInvalid response\n")
@@ -62,6 +75,7 @@ def instructions_choice():
 
         if choice == "s":
             clear()
+            start_game()
             break
         elif choice == "i":
             clear()
@@ -73,5 +87,5 @@ def instructions_choice():
     return choice
 
 
-get_username()
+username = get_username()
 instructions_choice()
