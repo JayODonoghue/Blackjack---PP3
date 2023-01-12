@@ -3,7 +3,7 @@ import os
 
 def clear():
     """
-    
+    Clears the screen once called.
     """
     os.system('clear')
 
@@ -30,6 +30,10 @@ def get_username():
 
 
 def deck():
+    """
+    Creates a deck of cards by iterating through the lists of suits and ranks 
+    to accumulate a deck.
+    """
     deck = []
     suits = ["Hearts", "Diamonds", "Spades", "Clubs"]
     ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
@@ -41,10 +45,20 @@ def deck():
 
 
 def deal_cards():
+    """
+    Prints 'dealing' and uses the random module to choose the dealers
+    and players cards. It also totals the values of the cards of the
+    each player along with giving them the choice of input hit/stand
+    """
     print("Dealing\n")
 
 
 def start_game():
+    """
+    Prints coins value and requests that the player place their bets.
+    Betting is limited to multiples of 5 and a minimum bet of 10 is required,
+    otherwise a valuerror response is printed.
+    """
     coins = 1000
     print(f"{username}'s total coins = {coins}\n\n")
     print("Place your bets\n")
@@ -74,6 +88,10 @@ def start_game():
     
 
 def instructions():
+    """
+    Lists out instructions and gives user choice to play
+    or return to home screen, provided correct data in inputted.
+    """
     print("\nInstructions\n")
     print("Step 1: Put down your bet\n")
     print("")
@@ -103,6 +121,10 @@ def instructions():
 
 
 def instructions_choice():
+    """
+    Gives user option to start game or read instructions.
+    Data is inputted by user once correct conditions are met.
+    """
     print("\nWould you like to start game or read instructions?")
 
     while True:
