@@ -2,6 +2,9 @@ import os
 
 
 def clear():
+    """
+    
+    """
     os.system('clear')
 
 
@@ -35,7 +38,11 @@ def deck():
         for rank in ranks:
             deck.append(suit + " " + rank)
     return deck
-    
+
+
+def deal_cards():
+    print("Dealing\n")
+
 
 def start_game():
     coins = 1000
