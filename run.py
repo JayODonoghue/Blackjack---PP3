@@ -34,18 +34,23 @@ def start_game():
     print("The player may not place a wager that exceeds their total coins.")
     print("The player's wager must be a number that is a multiple of 5.\n")
     while True:
+        wager = input("Place wager - eg 10, 15, 20 -  ")
         try:
-            wager = input("Place wager - eg 10, 15, 20 -  ")
             wager = int(wager)
 
             if wager < 10:
-                print("A minimum bet of 10 coins is required")
+                print("---\nA minimum bet of 10 coins is required\n")
             elif wager > coins:
-                print("You do not have enough funds to place this bet")
-            elif wager % 5 == 0:
-                print("Must be a multiple of 5")
+                print("---\nYou do not have enough funds to place this bet\n")
+            elif (wager % 5) != 0:
+                print("---\nMust be a multiple of 5\n")
+            else:
+                clear()
+                return wager
+                
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.")
+            break           
     
 
 def instructions():
@@ -62,11 +67,11 @@ def instructions():
     while True:
         start = input("Press [s] to start or [r] to return to main menu -  ")
 
-        if start == "s":
+        if start.lower() == "s":
             clear()
             start_game()
             break
-        elif start == "r":
+        elif start.lower() == "r":
             clear()
             get_username()
             instructions_choice()
@@ -83,11 +88,11 @@ def instructions_choice():
     while True:
         choice = input("Press [s] to start or [i] to view instructions - ")
 
-        if choice == "s":
+        if choice.lower() == "s":
             clear()
             start_game()
             break
-        elif choice == "i":
+        elif choice.lower() == "i":
             clear()
             instructions()
             break
