@@ -26,6 +26,17 @@ def get_username():
     return username
 
 
+def deck():
+    deck = []
+    suits = ["Hearts", "Diamonds", "Spades", "Clubs"]
+    ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+
+    for suit in suits:
+        for rank in ranks:
+            deck.append(suit + " " + rank)
+    return deck
+    
+
 def start_game():
     coins = 1000
     print(f"{username}'s total coins = {coins}\n\n")
@@ -45,7 +56,9 @@ def start_game():
             elif (wager % 5) != 0:
                 print("---\nMust be a multiple of 5\n")
             else:
+                print("No more bets")
                 clear()
+                deal_cards()
                 return wager
                 
         except ValueError as e:
