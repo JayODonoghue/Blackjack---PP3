@@ -1,4 +1,7 @@
 import os
+import random
+
+user_hand = []
 
 
 def clear():
@@ -40,17 +43,24 @@ def deck():
 
     for suit in suits:
         for rank in ranks:
-            deck.append(suit + " " + rank)
+            deck.append(rank + " " + suit)
+    
+    random.shuffle(deck)
+    
     return deck
 
 
-def deal_cards():
+def deal_cards(deck, user_hand):
     """
     Prints 'dealing' and uses the random module to choose the dealers
     and players cards. It also totals the values of the cards of the
     each player along with giving them the choice of input hit/stand
     """
     print("Dealing\n")
+
+    user_card = deck.pop()
+    user_hand.append(user_card)
+    print(user_card)
 
 
 def start_game():
@@ -73,13 +83,13 @@ def start_game():
             if wager < 10:
                 print("---\nA minimum bet of 10 coins is required\n")
             elif wager > coins:
-                print("---\nYou do not have enough funds to place this bet\n")
+                print("--\nYou do not have enough funds to place this bet\n")
             elif (wager % 5) != 0:
                 print("---\nMust be a multiple of 5\n")
             else:
                 print("No more bets")
                 clear()
-                deal_cards()
+                deal_cards(deck, user_hand)
                 return wager
                 
         except ValueError as e:
@@ -146,3 +156,4 @@ def instructions_choice():
 
 username = get_username()
 instructions_choice()
+deck = deck()
