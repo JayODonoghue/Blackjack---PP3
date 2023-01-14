@@ -63,6 +63,11 @@ def deal_cards(deck, user_hand):
     print(user_card)
 
 
+def cards_total():
+    values = {'2': 2, '3': 3}
+    print(values)
+
+
 def start_game():
     """
     Prints coins value and requests that the player place their bets.
@@ -89,14 +94,14 @@ def start_game():
             else:
                 print("No more bets")
                 clear()
-                deal_cards(deck, user_hand)
-                return wager
+                update_deck = deck()
+                deal_cards(update_deck, user_hand)
+                # return wager
                 
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.")
-            break           
+                       
     
-
 def instructions():
     """
     Lists out instructions and gives user choice to play
@@ -156,4 +161,5 @@ def instructions_choice():
 
 username = get_username()
 instructions_choice()
-deck = deck()
+
+
