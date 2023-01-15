@@ -2,6 +2,7 @@ import os
 import random
 
 user_hand = []
+dealer_hand = []
 
 
 def clear():
@@ -48,7 +49,7 @@ def deck():
     return deck
 
 
-def deal_cards(deck, user_hand):
+def deal_cards(deck, participant):
     """
     Prints 'dealing' and uses the random module to choose the dealers
     and players cards. It also totals the values of the cards of the
@@ -57,15 +58,14 @@ def deal_cards(deck, user_hand):
     print("Dealing\n")
 
     for card in range(2):
-        user_card = random.choice(deck)
-        user_hand.append(user_card)
+        card = random.choice(deck)
+        participant.append(card)
+        deck.remove(card)
 
-    print(f"Player hand is - {user_hand[0]} , {user_hand[1]}")
+    return card
 
-    cards_total(user_hand)
-    
 
-def cards_total(user_hand):
+def cards_total(participant_hand):
     values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
               '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
 
@@ -73,7 +73,7 @@ def cards_total(user_hand):
 
     for user_card in user_hand:
         score += values[user_card[0]]
-
+    
     print(score)
 
 
@@ -105,6 +105,7 @@ def start_game():
                 clear()
                 update_deck = deck()
                 deal_cards(update_deck, user_hand)
+                deal_cards(update_deck, dealer_hand)
                 return wager
                 
         except ValueError as e:
@@ -170,5 +171,8 @@ def instructions_choice():
 
 username = get_username()
 instructions_choice()
-
+print(f"Player hand is - {user_hand[0]} , {user_hand[1]}")
+cards_total(user_hand)
+print(f"\n\nDealer hand is - {dealer_hand[0]} , ?")
+show_dealer_card = print(dealer_hand[1])
 
