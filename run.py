@@ -62,12 +62,19 @@ def deal_cards(deck, user_hand):
 
     print(f"Player hand is - {user_hand[0]} , {user_hand[1]}")
 
-    cards_total()
+    cards_total(user_hand)
+    
 
+def cards_total(user_hand):
+    values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
+              '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
 
-def cards_total():
-    values = {'2': 2, '3': 3}
-    print(values)
+    score = 0
+
+    for user_card in user_hand:
+        score += values[user_card[0]]
+
+    print(score)
 
 
 def start_game():
