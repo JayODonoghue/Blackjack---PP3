@@ -106,8 +106,8 @@ def place_bet():
                 deal_cards(update_deck, dealer_hand)
                 return wager
                 
-        except ValueError as e:
-            print(f"Invalid data: {e}, please try again.")
+        except ValueError:
+            print("-------\nInvalid bet type, please try again.\n")
                        
     
 def instructions():
