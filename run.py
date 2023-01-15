@@ -75,7 +75,7 @@ def cards_total(participant_hand):
     return score
 
 
-def start_game():
+def place_bet():
     """
     Prints coins value and requests that the player place their bets.
     Betting is limited to multiples of 5 and a minimum bet of 10 is required,
@@ -130,7 +130,7 @@ def instructions():
 
         if start.lower() == "s":
             clear()
-            start_game()
+            place_bet()
             break
         elif start.lower() == "r":
             clear()
@@ -155,7 +155,7 @@ def instructions_choice():
 
         if choice.lower() == "s":
             clear()
-            start_game()
+            place_bet()
             break
         elif choice.lower() == "i":
             clear()
