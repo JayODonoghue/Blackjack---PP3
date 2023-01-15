@@ -72,7 +72,7 @@ def cards_total(participant_hand):
     for user_card in user_hand:
         score += values[user_card[0]]
     
-    print(score)
+    return score
 
 
 def start_game():
@@ -170,8 +170,11 @@ def instructions_choice():
 username = get_username()
 instructions_choice()
 print("Dealing\n")
-print(f"Player hand is - {user_hand[0]} , {user_hand[1]}")
+clear()
+print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}\n")
+user_total = cards_total(user_hand)
+print(f"Player total is - {user_total}\n\n-------------")
 cards_total(user_hand)
-print(f"\n\nDealer hand is - {dealer_hand[0]} , ?")
-show_dealer_card = print(dealer_hand[1])
+print(f"\nDealer hand is - {dealer_hand[0]} , ?")
+# show_dealer_card = print(dealer_hand[1])
 
