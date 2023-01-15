@@ -45,8 +45,6 @@ def deck():
         for rank in ranks:
             deck.append(rank + " " + suit)
     
-    random.shuffle(deck)
-    
     return deck
 
 
@@ -58,9 +56,13 @@ def deal_cards(deck, user_hand):
     """
     print("Dealing\n")
 
-    user_card = deck.pop()
-    user_hand.append(user_card)
-    print(user_card)
+    for card in range(2):
+        user_card = random.choice(deck)
+        user_hand.append(user_card)
+
+    print(f"Player hand is - {user_hand[0]} , {user_hand[1]}")
+
+    cards_total()
 
 
 def cards_total():
@@ -96,7 +98,7 @@ def start_game():
                 clear()
                 update_deck = deck()
                 deal_cards(update_deck, user_hand)
-                # return wager
+                return wager
                 
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.")
