@@ -55,8 +55,6 @@ def deal_cards(deck, participant):
     and players cards. It also totals the values of the cards of the
     each player along with giving them the choice of input hit/stand
     """
-    print("Dealing\n")
-
     for card in range(2):
         card = random.choice(deck)
         participant.append(card)
@@ -171,6 +169,7 @@ def instructions_choice():
 
 username = get_username()
 instructions_choice()
+print("Dealing\n")
 print(f"Player hand is - {user_hand[0]} , {user_hand[1]}")
 cards_total(user_hand)
 print(f"\n\nDealer hand is - {dealer_hand[0]} , ?")
