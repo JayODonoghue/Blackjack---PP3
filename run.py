@@ -87,28 +87,39 @@ def check_dealer_hand(dealer_hand):
     print(dealer_hand)
     dealer_total = cards_total(dealer_hand)
     print(f"Dealer total is - {dealer_total}\n\n-------------")
-    while True:
-        if dealer_total >= 17:
-            winning_hand(user_hand, dealer_hand)
-            break
-        elif dealer_total < 17:
-            update_deck = deck()
-            additional_card(update_deck, dealer_hand)
-            print(user_hand[-1])
-            new_dealer_total = cards_total(dealer_hand)
-            print(new_dealer_total)
-            if new_dealer_total > 21:
-                print("dealer has gone bust")
+    
+    if user_total == 21 and dealer_total != 21:
+        print("Blackjack\nUser wins")
+    elif dealer_total == 21 and user_total != 21:
+        print("Blackjack\nDealer wins")
+    else: 
+        while True:
+            if dealer_total >= 17:
+                print("Dealer stands")
+                winning_hand(user_hand, dealer_hand)
                 break
-            elif new_dealer_total == 21:
-                print("Blackjack")
-                break
+            elif dealer_total < 17:
+                update_deck = deck()
+                additional_card(update_deck, dealer_hand)
+                print(dealer_hand[-1])
+                new_dealer_total = cards_total(dealer_hand)
+                print(new_dealer_total)
+                if new_dealer_total > 21:
+                    print("dealer has gone bust")
+                    break
+                elif new_dealer_total == 21:
+                    print("Blackjack")
+                    winning_hand(user_hand, dealer_hand)
+                    break
+                elif new_dealer_total >= 17 and new_dealer_total != 21:
+                    print("Dealer stands")
+                    winning_hand(user_hand, dealer_hand)
+                    break
 
 
 def hit_or_stand():
     while True:
         if user_total == 21:
-            print("Blackjack")
             check_dealer_hand(dealer_hand)
             break
         elif user_total < 21:
@@ -137,7 +148,13 @@ def hit_or_stand():
 def winning_hand(participant1, participant2):
     if cards_total(user_hand) > 21:
         print("dealer wins")
-
+    elif cards_total(user_hand) > cards_total(dealer_hand):
+        print("User wins")
+    elif cards_total(dealer_hand) > cards_total(user_hand):
+        print("Dealer wins")
+    elif cards_total(user_hand) == cards_total(dealer_hand):
+        print("push")
+        
 
 def place_bet():
     """
@@ -241,5 +258,5 @@ print(f"Player total is - {user_total}\n\n-------------")
 cards_total(user_hand)
 print(f"\nDealer hand is - {dealer_hand[0]} , ?")
 hit_or_stand()
-winning_hand(user_hand, dealer_hand)
+# winning_hand(user_hand, dealer_hand)
 
