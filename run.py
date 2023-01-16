@@ -63,16 +63,80 @@ def deal_cards(deck, participant):
     return card
 
 
+def additional_card(deck, participant):
+    card = random.choice(deck)
+    participant.append(card)
+    deck.remove(card)
+
+
 def cards_total(participant_hand):
     values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
-              '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
+              '9': 9, '1': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
 
     score = 0
 
-    for user_card in user_hand:
-        score += values[user_card[0]]
+    for card in participant_hand:
+        score += values[card[0]]
     
     return score
+
+
+def check_dealer_hand(dealer_hand):
+    show_dealer_card = dealer_hand[1]
+    print(show_dealer_card)
+    print(dealer_hand)
+    dealer_total = cards_total(dealer_hand)
+    print(f"Dealer total is - {dealer_total}\n\n-------------")
+    while True:
+        if dealer_total >= 17:
+            winning_hand(user_hand, dealer_hand)
+            break
+        elif dealer_total < 17:
+            update_deck = deck()
+            additional_card(update_deck, dealer_hand)
+            print(user_hand[-1])
+            new_dealer_total = cards_total(dealer_hand)
+            print(new_dealer_total)
+            if new_dealer_total > 21:
+                print("dealer has gone bust")
+                break
+            elif new_dealer_total == 21:
+                print("Blackjack")
+                break
+
+
+def hit_or_stand():
+    while True:
+        if user_total == 21:
+            print("Blackjack")
+            check_dealer_hand(dealer_hand)
+            break
+        elif user_total < 21:
+            hit_stand = input("Press [h] to Hit or [s] to Stand -  ")
+            if hit_stand.lower() == "h":
+                update_deck = deck()
+                additional_card(update_deck, user_hand)
+                print(user_hand[-1])
+                new_user_total = cards_total(user_hand)
+                print(new_user_total)
+                if new_user_total > 21:
+                    print("user has gone bust")
+                    break
+                elif new_user_total == 21:
+                    print("Blackjack")
+                    check_dealer_hand(dealer_hand)
+                    break
+            elif hit_stand.lower() == "s":
+                print("check scores & dealer card")
+                check_dealer_hand(dealer_hand)
+                break
+            else:
+                print("-------\nInvalid response\n")
+
+
+def winning_hand(participant1, participant2):
+    if cards_total(user_hand) > 21:
+        print("dealer wins")
 
 
 def place_bet():
@@ -176,5 +240,6 @@ user_total = cards_total(user_hand)
 print(f"Player total is - {user_total}\n\n-------------")
 cards_total(user_hand)
 print(f"\nDealer hand is - {dealer_hand[0]} , ?")
-# show_dealer_card = print(dealer_hand[1])
+hit_or_stand()
+winning_hand(user_hand, dealer_hand)
 
