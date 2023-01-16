@@ -74,10 +74,17 @@ def cards_total(participant_hand):
               '9': 9, '1': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
 
     score = 0
+    ace = 0
 
     for card in participant_hand:
         score += values[card[0]]
-    
+        if card[0] == 'A':
+            ace += 1
+
+    while score > 21 and ace > 0:
+        score -= 10
+        ace -= 10
+
     return score
 
 
