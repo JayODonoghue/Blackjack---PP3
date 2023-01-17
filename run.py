@@ -145,7 +145,6 @@ def hit_or_stand():
                     check_dealer_hand(dealer_hand)
                     break
             elif hit_stand.lower() == "s":
-                print("check scores & dealer card")
                 check_dealer_hand(dealer_hand)
                 break
             else:
