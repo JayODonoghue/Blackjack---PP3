@@ -83,14 +83,14 @@ def cards_total(participant_hand):
 
     while score > 21 and ace > 0:
         score -= 10
-        ace -= 10
+        ace -= 1
 
     return score
 
 
 def check_dealer_hand(dealer_hand):
     show_dealer_card = dealer_hand[1]
-    print(f"\nDealer's second card is ... {show_dealer_card}")
+    print(f"Dealer's second card is ... {show_dealer_card}")
     print(f"Dealer's hand is {dealer_hand[0]}, {dealer_hand[1]}")
     dealer_total = cards_total(dealer_hand)
     print(f"\nDealer total is - {dealer_total}\n\n-------------")
@@ -258,7 +258,7 @@ username = get_username()
 instructions_choice()
 print("Dealing\n")
 clear()
-print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}\n")
+print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}")
 user_total = cards_total(user_hand)
 print(f"Player total is - {user_total}\n\n")
 cards_total(user_hand)
