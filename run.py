@@ -262,7 +262,7 @@ print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}\n")
 user_total = cards_total(user_hand)
 print(f"Player total is - {user_total}\n\n-------------")
 cards_total(user_hand)
-print(f"\nDealer hand is - {dealer_hand[0]} , ?")
+print(f"\nDealer hand is - {dealer_hand[0]} , ?\n\n-------------\n")
 hit_or_stand()
 
 
