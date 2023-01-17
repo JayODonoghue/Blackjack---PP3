@@ -90,10 +90,10 @@ def cards_total(participant_hand):
 
 def check_dealer_hand(dealer_hand):
     show_dealer_card = dealer_hand[1]
-    print(show_dealer_card)
-    print(dealer_hand)
+    print(f"\nDealer's second card is ... {show_dealer_card}")
+    print(f"Dealer's hand is {dealer_hand[0]}, {dealer_hand[1]}")
     dealer_total = cards_total(dealer_hand)
-    print(f"Dealer total is - {dealer_total}\n\n-------------")
+    print(f"\nDealer total is - {dealer_total}\n\n-------------")
     
     if user_total == 21 and dealer_total != 21:
         print("Blackjack\nUser wins")
@@ -260,7 +260,7 @@ print("Dealing\n")
 clear()
 print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}\n")
 user_total = cards_total(user_hand)
-print(f"Player total is - {user_total}\n\n-------------")
+print(f"Player total is - {user_total}\n\n")
 cards_total(user_hand)
 print(f"\nDealer hand is - {dealer_hand[0]} , ?\n\n-------------\n")
 hit_or_stand()
