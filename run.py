@@ -162,28 +162,43 @@ def winning_hand(participant1, participant2):
         print("push")
         
 
-def place_bet():
+class Coins:
+    def __init__(self):
+        self.coins = 1000
+        self.bet = 0
+
+    def win_bet(self):
+        self.coins += self.bet
+        return self.coins
+
+    def lose_bet(self):
+        self.coins == self.bet
+        return self.coins
+
+    def show_coins(self):
+        return self.coins
+
+
+def place_bet(coins):
     """
     Prints coins value and requests that the player place their bets.
     Betting is limited to multiples of 5 and a minimum bet of 10 is required,
     otherwise a valuerror response is printed.
     """
-    coins = 1000
-    print(f"{username}'s total coins = {coins}\n\n")
+
+    print(f"{username}'s total coins = {player_coins}\n\n")
     print("Place your bets\n")
     print("A minimum bet of 10 coins per hand is required.")
     print("The player may not place a wager that exceeds their total coins.")
     print("The player's wager must be a number that is a multiple of 5.\n")
     while True:
-        wager = input("Place wager - eg 10, 15, 20 -  ")
+        coins.bet = int(input("Place wager - eg 10, 15, 20 -  "))
         try:
-            wager = int(wager)
-
-            if wager < 10:
+            if coins.bet < 10:
                 print("---\nA minimum bet of 10 coins is required\n")
-            elif wager > coins:
+            elif coins.bet > coins.coins:
                 print("--\nYou do not have enough funds to place this bet\n")
-            elif (wager % 5) != 0:
+            elif (coins.bet % 5) != 0:
                 print("---\nMust be a multiple of 5\n")
             else:
                 print("No more bets")
@@ -191,11 +206,10 @@ def place_bet():
                 update_deck = deck()
                 deal_cards(update_deck, user_hand)
                 deal_cards(update_deck, dealer_hand)
-                return wager
-                
+                break
         except ValueError:
             print("-------\nInvalid bet type, please try again.\n")
-                       
+
     
 def instructions():
     """
@@ -217,7 +231,7 @@ def instructions():
 
         if start.lower() == "s":
             clear()
-            place_bet()
+            place_bet(player_coins)
             break
         elif start.lower() == "r":
             clear()
@@ -242,7 +256,6 @@ def instructions_choice():
 
         if choice.lower() == "s":
             clear()
-            place_bet()
             break
         elif choice.lower() == "i":
             clear()
@@ -256,6 +269,9 @@ def instructions_choice():
 
 username = get_username()
 instructions_choice()
+player_coins = Coins()
+player_coins.coins = 1000
+place_bet(player_coins)
 print("Dealing\n")
 clear()
 print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}")
