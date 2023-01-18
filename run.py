@@ -106,7 +106,6 @@ def check_dealer_hand(dealer_hand):
                 winning_hand(user_hand, dealer_hand)
                 break
             elif dealer_total < 17:
-                update_deck = deck()
                 additional_card(update_deck, dealer_hand)
                 print(dealer_hand[-1])
                 new_dealer_total = cards_total(dealer_hand)
@@ -132,7 +131,6 @@ def hit_or_stand():
         elif user_total < 21:
             hit_stand = input("Press [h] to Hit or [s] to Stand -  ")
             if hit_stand.lower() == "h":
-                update_deck = deck()
                 additional_card(update_deck, user_hand)
                 print(user_hand[-1])
                 new_user_total = cards_total(user_hand)
@@ -203,9 +201,6 @@ def place_bet(coins):
             else:
                 print("No more bets")
                 clear()
-                update_deck = deck()
-                deal_cards(update_deck, user_hand)
-                deal_cards(update_deck, dealer_hand)
                 break
         except ValueError:
             print("-------\nInvalid bet type, please try again.\n")
@@ -272,6 +267,9 @@ instructions_choice()
 player_coins = Coins()
 player_coins.coins = 1000
 place_bet(player_coins)
+update_deck = deck()
+deal_cards(update_deck, user_hand)
+deal_cards(update_deck, dealer_hand)
 print("Dealing\n")
 clear()
 print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}")
