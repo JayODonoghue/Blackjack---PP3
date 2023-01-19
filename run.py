@@ -48,9 +48,7 @@ def deck():
 
 def deal_cards(deck, participant):
     """
-    Prints 'dealing' and uses the random module to choose the dealers
-    and players cards. It also totals the values of the cards of the
-    each player along with giving them the choice of input hit/stand
+    Uses the random module to choose the dealers and players cards. 
     """
     for card in range(2):
         card = random.choice(deck)
