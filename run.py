@@ -334,6 +334,9 @@ def start_up():
 
 
 def main():
+    """
+    Main function that runs the game by calling all the required functions
+    """
     user_hand = []
     dealer_hand = []
     place_bet(player_coins)
