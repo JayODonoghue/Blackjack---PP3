@@ -235,7 +235,7 @@ def go_again():
     #     return round_choice
 
     
-def place_bet(username, coins):
+def place_bet(coins):
     """
     Prints coins value and requests that the player place their bets.
     Betting is limited to multiples of 5 and a minimum bet of 10 is required,
@@ -333,7 +333,7 @@ def main():
     dealer_hand = []
     global player_coins
     player_coins = Coins()
-    place_bet(username, player_coins)
+    place_bet(player_coins)
     global update_deck
     update_deck = deck()
     deal_cards(update_deck, user_hand)
