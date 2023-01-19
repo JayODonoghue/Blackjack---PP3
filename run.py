@@ -205,6 +205,10 @@ class Coins:
         
 
 def go_again():
+    """
+    Once the winnning hand is determined the user is given the option to play
+    again or to quit retirning to the beginning.
+    """
     print(player_coins.coins)
     # if player_coins.coins == 0:
     #     print("Awh no more coins, game over. Thanks for playing!")
