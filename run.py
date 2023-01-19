@@ -133,6 +133,11 @@ def check_dealer_hand(dealer_hand, user_total, user_hand):
 
 
 def hit_or_stand(user_total, user_hand):
+    """
+    Gives the user a choice to hit or stand. If 'hit' is chosen, then 
+    an additional card is called and the total of the dealers hand
+    is recalculated. If 'stand' the dealers hand is viewed.
+    """
     while True:
         if user_total == 21:
             break
