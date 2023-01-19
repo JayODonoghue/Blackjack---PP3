@@ -242,7 +242,7 @@ def place_bet(coins):
     otherwise a valuerror response is printed.
     """
 
-    print(f"{username}'s total coins = {coins.coins}\n\n")
+    print(f"{USERNAME}'s total coins = {coins.coins}\n\n")
     print("Place your bets\n")
     print("A minimum bet of 10 coins per hand is required.")
     print("The player may not place a wager that exceeds their total coins.")
@@ -326,8 +326,8 @@ def start_up():
     Starts the whole process. Prints greeting message and calls
     the main function if instructions not chosen.
     """
-    global username
-    username = get_username()
+    global USERNAME
+    USERNAME = get_username()
     instructions_choice()
     main()
 
