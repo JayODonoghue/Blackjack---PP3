@@ -322,6 +322,10 @@ def instructions_choice():
 
 
 def start_up():
+    """
+    Starts the whole process. Prints greeting message and calls
+    the main function if instructions not chosen.
+    """
     global username
     username = get_username()
     instructions_choice()
