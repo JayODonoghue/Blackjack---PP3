@@ -69,6 +69,10 @@ def additional_card(deck, participant):
 
 
 def cards_total(participant_hand):
+    """
+    Totals the values of the cards in the participants hand and return the
+    score. It also adjusts the value for 'A' accordingly
+    """
     values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
               '9': 9, '1': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
 
