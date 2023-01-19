@@ -167,6 +167,32 @@ class Coins:
         self.coins == self.bet
         return self.coins
 
+
+def go_again(coins):
+    if coins.coins == 0:
+        print("Awh no more coins, game over. Thanks for playing!")
+        clear()
+        start_up()
+        coins.coins = 1000
+    else:
+        print("\nWould you like to start play another round?")
+        while True:
+            round_choice = input("Press [y] to start or [q] to quit - ")
+
+            if round_choice.lower() == "y":
+                clear()
+                main()
+                break
+            elif round_choice.lower() == "q":
+                clear()
+                start_up()
+                coins.coins = 1000
+                break
+            else:
+                print("-------\nInvalid response\n")
+        
+        return round_choice
+
     
 def place_bet(username, coins):
     """
@@ -257,6 +283,7 @@ def start_up():
     global username
     username = get_username()
     instructions_choice()
+    main()
 
 
 def main():
@@ -278,10 +305,10 @@ def main():
     hit_or_stand(user_total, user_hand)
     check_dealer_hand(dealer_hand, user_total)
     winning_hand(user_hand, dealer_hand)
-    # go_again()
+    go_again(player_coins)
 
 
 start_up()
-main()
+
 
 
