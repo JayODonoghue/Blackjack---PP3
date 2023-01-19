@@ -179,6 +179,7 @@ def winning_hand(user_hand, dealer_hand):
         print("user wins")
     elif cards_total(dealer_hand) == 21 and cards_total(user_hand) != 21:
         print("Dealer wins")
+        player_coins.win_bet()
         
 
 class Coins:
@@ -187,8 +188,8 @@ class Coins:
     adding and subtracting the coins after each hand
     """
 
-    def __init__(self, coins=1000):
-        self.coins = coins
+    def __init__(self):
+        self.coins = 1000
         self.bet = 0
 
     def win_bet(self):
@@ -335,8 +336,6 @@ def start_up():
 def main():
     user_hand = []
     dealer_hand = []
-    global player_coins
-    player_coins = Coins()
     place_bet(player_coins)
     global update_deck
     update_deck = deck()
@@ -355,6 +354,7 @@ def main():
     go_again()
 
 
+player_coins = Coins()
 start_up()
 
 
