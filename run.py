@@ -92,6 +92,11 @@ def cards_total(participant_hand):
 
 
 def check_dealer_hand(dealer_hand, user_total, user_hand):
+    """
+    Once called, reveals the dealers full hand and then distinguishes whether
+    the dealer will stand or hit. Also takes into account if Blackjack is
+    gotten from first hand, or if dealer goes bust once hit.
+    """
     if cards_total(user_hand) > 21:
         print("I lose")
     else:
