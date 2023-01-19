@@ -59,6 +59,10 @@ def deal_cards(deck, participant):
 
 
 def additional_card(deck, participant):
+    """
+    Once hit is entered by the user this function is called and uses
+    the random module to draw an additional card and remove it from deck.
+    """
     card = random.choice(deck)
     participant.append(card)
     deck.remove(card)
