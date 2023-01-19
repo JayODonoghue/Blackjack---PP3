@@ -13,7 +13,7 @@ def get_username():
     """
     Get username input from the user.
     A while loop collects data from the user that will be a string
-    3 to 10 characters long 
+    3 to 10 characters long
     """
     print("\nBLACKJACK\n")
     print("Please make sure your username is 3 - 10 characters")
@@ -182,15 +182,25 @@ def winning_hand(user_hand, dealer_hand):
         
 
 class Coins:
+    """
+    Class for all dealings with the coins aspect of the game,
+    adding and subtracting the coins after each hand
+    """
 
     def __init__(self, coins=1000):
         self.coins = coins
         self.bet = 0
 
     def win_bet(self):
+        """
+        Adds coins if you win the hand
+        """
         self.coins += self.bet
         
     def lose_bet(self):
+        """
+        Deducts the coins if you lose the hand.
+        """
         self.coins -= self.bet
         
 
