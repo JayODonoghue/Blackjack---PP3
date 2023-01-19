@@ -85,12 +85,15 @@ def cards_total(participant_hand):
     return score
 
 
-def check_dealer_hand(dealer_hand, user_total):
-    show_dealer_card = dealer_hand[1]
-    print(f"Dealer's second card is ... {show_dealer_card}")
-    print(f"Dealer's hand is {dealer_hand[0]}, {dealer_hand[1]}")
-    dealer_total = cards_total(dealer_hand)
-    print(f"\nDealer total is - {dealer_total}\n\n-------------")
+def check_dealer_hand(dealer_hand, user_total, user_hand):
+    if cards_total(user_hand) > 21:
+        print("I lose")
+    else:
+        show_dealer_card = dealer_hand[1]
+        print(f"Dealer's second card is ... {show_dealer_card}")
+        print(f"Dealer's hand is {dealer_hand[0]}, {dealer_hand[1]}")
+        dealer_total = cards_total(dealer_hand)
+        print(f"\nDealer total is - {dealer_total}\n\n-------------")
     
     if user_total == 21 and dealer_total != 21:
         print("Blackjack\nUser wins")
@@ -108,6 +111,7 @@ def check_dealer_hand(dealer_hand, user_total):
                 print(new_dealer_total)
                 if new_dealer_total > 21:
                     print("dealer has gone bust")
+                    player_coins.win_bet()
                     break
                 elif new_dealer_total == 21:
                     print("Blackjack")
@@ -129,7 +133,8 @@ def hit_or_stand(user_total, user_hand):
                 new_user_total = cards_total(user_hand)
                 print(new_user_total)
                 if new_user_total > 21:
-                    print("user has gone bust")
+                    print("User has gone bust.\nDealer wins")
+                    player_coins.lose_bet
                     break
                 elif new_user_total == 21:
                     print("Blackjack")
@@ -141,57 +146,59 @@ def hit_or_stand(user_total, user_hand):
 
 
 def winning_hand(user_hand, dealer_hand):
-    if cards_total(user_hand) > 21:
-        print("dealer wins")
-    
     if cards_total(user_hand) < 21 and cards_total(dealer_hand) < 21:
         if cards_total(user_hand) > cards_total(dealer_hand):
             print("User wins")
+            player_coins.win_bet()
         elif cards_total(dealer_hand) > cards_total(user_hand):
-            print("Dealer wins")
+            print("dealer wins")
+            player_coins.lose_bet()
         elif cards_total(user_hand) == cards_total(dealer_hand):
             print("push")
+    elif cards_total(user_hand) == 21 and cards_total(dealer_hand) != 21:
+        print("user wins")
+    elif cards_total(dealer_hand) == 21 and cards_total(user_hand) != 21:
+        print("Dealer wins")
         
 
 class Coins:
 
-    def __init__(self):
-        self.coins = 1000
+    def __init__(self, coins=1000):
+        self.coins = coins
         self.bet = 0
 
     def win_bet(self):
         self.coins += self.bet
-        return self.coins
-
+        
     def lose_bet(self):
         self.coins == self.bet
-        return self.coins
-
-
-def go_again(coins):
-    if coins.coins == 0:
-        print("Awh no more coins, game over. Thanks for playing!")
-        clear()
-        start_up()
-        coins.coins = 1000
-    else:
-        print("\nWould you like to start play another round?")
-        while True:
-            round_choice = input("Press [y] to start or [q] to quit - ")
-
-            if round_choice.lower() == "y":
-                clear()
-                main()
-                break
-            elif round_choice.lower() == "q":
-                clear()
-                start_up()
-                coins.coins = 1000
-                break
-            else:
-                print("-------\nInvalid response\n")
         
-        return round_choice
+
+def go_again():
+    print(player_coins.coins)
+    # if player_coins.coins == 0:
+    #     print("Awh no more coins, game over. Thanks for playing!")
+    #     clear()
+    #     start_up()
+    #     # coins.coins = 1000
+    # else:
+    #     print("\nWould you like to start play another round?")
+    #     while True:
+    #         round_choice = input("Press [y] to start or [q] to quit - ")
+
+    #         if round_choice.lower() == "y":
+    #             clear()
+    #             main()
+    #             break
+    #         elif round_choice.lower() == "q":
+    #             clear()
+    #             start_up()
+    #             # coins.coins = 1000
+    #             break
+    #         else:
+    #             print("-------\nInvalid response\n")
+        
+    #     return round_choice
 
     
 def place_bet(username, coins):
@@ -212,7 +219,7 @@ def place_bet(username, coins):
             coins.bet = int(input("Place wager - eg 10, 15, 20 -  "))
             if coins.bet < 10:
                 print("---\nA minimum bet of 10 coins is required\n")
-            elif coins.bet > coins.coins:
+            elif player_coins.bet > coins.coins:
                 print("--\nYou do not have enough funds to place this bet\n")
             elif (coins.bet % 5) != 0:
                 print("---\nMust be a multiple of 5\n")
@@ -222,7 +229,8 @@ def place_bet(username, coins):
                 break
         except ValueError:
             print("-------\nInvalid bet type, please try again.\n")
-    
+        continue
+
 
 def instructions():
     """
@@ -289,6 +297,7 @@ def start_up():
 def main():
     user_hand = []
     dealer_hand = []
+    global player_coins
     player_coins = Coins()
     place_bet(username, player_coins)
     global update_deck
@@ -303,9 +312,9 @@ def main():
     cards_total(user_hand)
     print(f"\nDealer hand is - {dealer_hand[0]} , ?\n\n-------------\n")
     hit_or_stand(user_total, user_hand)
-    check_dealer_hand(dealer_hand, user_total)
+    check_dealer_hand(dealer_hand, user_total, user_hand)
     winning_hand(user_hand, dealer_hand)
-    go_again(player_coins)
+    go_again()
 
 
 start_up()
