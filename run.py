@@ -211,29 +211,29 @@ def go_again():
     again or to quit retirning to the beginning.
     """
     print(player_coins.coins)
-    # if player_coins.coins == 0:
-    #     print("Awh no more coins, game over. Thanks for playing!")
-    #     clear()
-    #     start_up()
-    #     # coins.coins = 1000
-    # else:
-    #     print("\nWould you like to start play another round?")
-    #     while True:
-    #         round_choice = input("Press [y] to start or [q] to quit - ")
+    if player_coins.coins == 0:
+        print("Awh no more coins, game over. Thanks for playing!")
+        clear()
+        start_up()
+        player_coins.coins = 1000
+    else:
+        print("\nWould you like to start play another round?")
+        while True:
+            round_choice = input("Press [y] to start or [q] to quit - ")
 
-    #         if round_choice.lower() == "y":
-    #             clear()
-    #             main()
-    #             break
-    #         elif round_choice.lower() == "q":
-    #             clear()
-    #             start_up()
-    #             # coins.coins = 1000
-    #             break
-    #         else:
-    #             print("-------\nInvalid response\n")
+            if round_choice.lower() == "y":
+                clear()
+                main()
+                break
+            elif round_choice.lower() == "q":
+                clear()
+                start_up()
+                player_coins.coins = 1000
+                break
+            else:
+                print("-------\nInvalid response\n")
         
-    #     return round_choice
+        return round_choice
 
     
 def place_bet(coins):
