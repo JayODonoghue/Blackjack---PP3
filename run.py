@@ -162,6 +162,10 @@ def hit_or_stand(user_total, user_hand):
 
 
 def winning_hand(user_hand, dealer_hand):
+    """
+    Compares users hand to dealers and returns who the winner is or
+    if a draw/push.
+    """
     if cards_total(user_hand) < 21 and cards_total(dealer_hand) < 21:
         if cards_total(user_hand) > cards_total(dealer_hand):
             print("User wins")
