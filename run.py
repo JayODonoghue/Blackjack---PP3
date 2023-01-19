@@ -98,7 +98,8 @@ def check_dealer_hand(dealer_hand, user_total, user_hand):
     gotten from first hand, or if dealer goes bust once hit.
     """
     if cards_total(user_hand) > 21:
-        print("I lose")
+        player_coins.lose_bet()
+        go_again()
     else:
         show_dealer_card = dealer_hand[1]
         print(f"Dealer's second card is ... {show_dealer_card}")
@@ -108,8 +109,10 @@ def check_dealer_hand(dealer_hand, user_total, user_hand):
     
     if user_total == 21 and dealer_total != 21:
         print("Blackjack\nUser wins")
+        player_coins.win_bet()
     elif dealer_total == 21 and user_total != 21:
         print("Blackjack\nDealer wins")
+        player_coins.lose_bet()
     else: 
         while True:
             if dealer_total >= 17:
@@ -175,8 +178,6 @@ def winning_hand(user_hand, dealer_hand):
             player_coins.lose_bet()
         elif cards_total(user_hand) == cards_total(dealer_hand):
             print("push")
-    elif cards_total(user_hand) == 21 and cards_total(dealer_hand) != 21:
-        print("user wins")
     elif cards_total(dealer_hand) == 21 and cards_total(user_hand) != 21:
         print("Dealer wins")
         player_coins.win_bet()
@@ -210,12 +211,11 @@ def go_again():
     Once the winnning hand is determined the user is given the option to play
     again or to quit retirning to the beginning.
     """
-    print(player_coins.coins)
     if player_coins.coins == 0:
         print("Awh no more coins, game over. Thanks for playing!")
         clear()
-        start_up()
         player_coins.coins = 1000
+        start_up()
     else:
         print("\nWould you like to start play another round?")
         while True:
@@ -227,8 +227,8 @@ def go_again():
                 break
             elif round_choice.lower() == "q":
                 clear()
-                start_up()
                 player_coins.coins = 1000
+                start_up()
                 break
             else:
                 print("-------\nInvalid response\n")
