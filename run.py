@@ -191,7 +191,7 @@ class Coins:
         self.coins += self.bet
         
     def lose_bet(self):
-        self.coins == self.bet
+        self.coins -= self.bet
         
 
 def go_again():
