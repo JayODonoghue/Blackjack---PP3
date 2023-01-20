@@ -17,8 +17,8 @@ def get_username():
     A while loop collects data from the user that will be a string
     3 to 10 characters long
     """
-    print(pyfiglet.figlet_format("\nBLACKJACK\n", justify="center",
-          width=80, font="starwars"))
+    print(pyfiglet.figlet_format("\nBLACKJACK\n", font="starwars",
+          justify="center", width=80))
     print("Please make sure your username is 3 - 10 characters")
 
     while True:
