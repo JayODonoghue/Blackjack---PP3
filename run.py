@@ -1,5 +1,6 @@
 import os
 import random
+import time
 
 
 def clear():
@@ -107,26 +108,26 @@ def check_dealer_hand(dealer_hand, user_total, user_hand):
         dealer_total = cards_total(dealer_hand)
         print(f"\nDealer total is - {dealer_total}\n\n-------------")
     
-    if user_total == 21 and dealer_total != 21:
-        print("Blackjack\nUser wins")
-        player_coins.win_bet()
-    elif dealer_total == 21 and user_total != 21:
-        print("Blackjack\nDealer wins")
-        player_coins.lose_bet()
+    if cards_total(user_hand) == 21 and cards_total(dealer_hand) != 21:
+        print("Blackjack")
+    elif cards_total(dealer_hand) == 21 and cards_total(user_hand) != 21:
+        print("Blackjack")
+    elif cards_total(dealer_hand) == 21 and cards_total(user_hand) == 21:
+        print("Push")
     else: 
         while True:
             if dealer_total >= 17:
                 print("Dealer stands")
-                break
+                break            
             elif dealer_total < 17:
                 additional_card(update_deck, dealer_hand)
                 print(dealer_hand[-1])
                 new_dealer_total = cards_total(dealer_hand)
-                print(new_dealer_total)
+                print(new_dealer_total)                
                 if new_dealer_total > 21:
                     print("dealer has gone bust")
                     player_coins.win_bet()
-                    break
+                    break                
                 elif new_dealer_total == 21:
                     print("Blackjack")
                     break
@@ -171,7 +172,7 @@ def winning_hand(user_hand, dealer_hand):
     """
     if cards_total(user_hand) < 21 and cards_total(dealer_hand) < 21:
         if cards_total(user_hand) > cards_total(dealer_hand):
-            print("User wins")
+            print("user wins")
             player_coins.win_bet()
         elif cards_total(dealer_hand) > cards_total(user_hand):
             print("dealer wins")
@@ -180,6 +181,9 @@ def winning_hand(user_hand, dealer_hand):
             print("push")
     elif cards_total(dealer_hand) == 21 and cards_total(user_hand) != 21:
         print("Dealer wins")
+        player_coins.lose_bet()
+    elif cards_total(user_hand) == 21 and cards_total(dealer_hand) != 21:
+        print("User wins")
         player_coins.win_bet()
         
 
@@ -213,6 +217,7 @@ def go_again():
     """
     if player_coins.coins == 0:
         print("Awh no more coins, game over. Thanks for playing!")
+        time.sleep(3)
         clear()
         player_coins.coins = 1000
         start_up()
@@ -245,6 +250,7 @@ def place_bet(coins):
 
     print(f"{USERNAME}'s total coins = {coins.coins}\n\n")
     print("Place your bets\n")
+    time.sleep(0.5)
     print("A minimum bet of 10 coins per hand is required.")
     print("The player may not place a wager that exceeds their total coins.")
     print("The player's wager must be a number that is a multiple of 5.\n")
@@ -260,6 +266,7 @@ def place_bet(coins):
                 print("---\nMust be a multiple of 5\n")
             else:
                 print("No more bets")
+                time.sleep(0.5)
                 clear()
                 break
         except ValueError:
@@ -345,6 +352,7 @@ def main():
     deal_cards(update_deck, user_hand)
     deal_cards(update_deck, dealer_hand)
     print("Dealing\n")
+    time.sleep(1.0)
     clear()
     print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}")
     user_total = cards_total(user_hand)
