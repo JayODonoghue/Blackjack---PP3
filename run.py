@@ -19,7 +19,7 @@ def get_username():
     print("\nBLACKJACK\n")
     print("Please make sure your username is 3 - 10 characters")
 
-    while True:    
+    while True:
         username = input("Please enter your username - ")
 
         if len(username) >= 3 and len(username) < 11:
@@ -33,7 +33,7 @@ def get_username():
 
 def deck():
     """
-    Creates a deck of cards by iterating through the lists of suits and ranks 
+    Creates a deck of cards by iterating through the lists of suits and ranks
     to accumulate a deck.
     """
     deck = []
@@ -43,13 +43,13 @@ def deck():
     for suit in suits:
         for rank in ranks:
             deck.append(rank + " " + suit)
-    
+
     return deck
 
 
 def deal_cards(deck, participant):
     """
-    Uses the random module to choose the dealers and players cards. 
+    Uses the random module to choose the dealers and players cards.
     """
     for card in range(2):
         card = random.choice(deck)
@@ -92,7 +92,7 @@ def cards_total(participant_hand):
     return score
 
 
-def check_dealer_hand(dealer_hand, user_total, user_hand):
+def check_dealer_hand(dealer_hand, user_hand):
     """
     Once called, reveals the dealers full hand and then distinguishes whether
     the dealer will stand or hit. Also takes into account if Blackjack is
@@ -107,27 +107,27 @@ def check_dealer_hand(dealer_hand, user_total, user_hand):
         print(f"Dealer's hand is {dealer_hand[0]}, {dealer_hand[1]}")
         dealer_total = cards_total(dealer_hand)
         print(f"\nDealer total is - {dealer_total}\n\n-------------")
-    
+
     if cards_total(user_hand) == 21 and cards_total(dealer_hand) != 21:
         print("Blackjack")
     elif cards_total(dealer_hand) == 21 and cards_total(user_hand) != 21:
         print("Blackjack")
     elif cards_total(dealer_hand) == 21 and cards_total(user_hand) == 21:
         print("Push")
-    else: 
+    else:
         while True:
             if dealer_total >= 17:
                 print("Dealer stands")
-                break            
+                break
             elif dealer_total < 17:
                 additional_card(update_deck, dealer_hand)
                 print(dealer_hand[-1])
                 new_dealer_total = cards_total(dealer_hand)
-                print(new_dealer_total)                
+                print(new_dealer_total)
                 if new_dealer_total > 21:
                     print("dealer has gone bust")
                     player_coins.win_bet()
-                    break                
+                    break
                 elif new_dealer_total == 21:
                     print("Blackjack")
                     break
@@ -138,7 +138,7 @@ def check_dealer_hand(dealer_hand, user_total, user_hand):
 
 def hit_or_stand(user_total, user_hand):
     """
-    Gives the user a choice to hit or stand. If 'hit' is chosen, then 
+    Gives the user a choice to hit or stand. If 'hit' is chosen, then
     an additional card is called and the total of the dealers hand
     is recalculated. If 'stand' the dealers hand is viewed.
     """
@@ -185,7 +185,7 @@ def winning_hand(user_hand, dealer_hand):
     elif cards_total(user_hand) == 21 and cards_total(dealer_hand) != 21:
         print("User wins")
         player_coins.win_bet()
-        
+
 
 class Coins:
     """
@@ -202,13 +202,13 @@ class Coins:
         Adds coins if you win the hand
         """
         self.coins += self.bet
-        
+
     def lose_bet(self):
         """
         Deducts the coins if you lose the hand.
         """
         self.coins -= self.bet
-        
+
 
 def go_again():
     """
@@ -237,10 +237,10 @@ def go_again():
                 break
             else:
                 print("-------\nInvalid response\n")
-        
+
         return round_choice
 
-    
+
 def place_bet(coins):
     """
     Prints coins value and requests that the player place their bets.
@@ -255,7 +255,7 @@ def place_bet(coins):
     print("The player may not place a wager that exceeds their total coins.")
     print("The player's wager must be a number that is a multiple of 5.\n")
     while True:
-        
+
         try:
             coins.bet = int(input("Place wager - eg 10, 15, 20 -  "))
             if coins.bet < 10:
@@ -302,7 +302,7 @@ def instructions():
             break
         else:
             print("-------\nInvalid response\n")
-    
+
     return start
 
 
@@ -325,7 +325,7 @@ def instructions_choice():
             break
         else:
             print("-------\nInvalid response\n")
-    
+
     return choice
 
 
@@ -360,13 +360,10 @@ def main():
     cards_total(user_hand)
     print(f"\nDealer hand is - {dealer_hand[0]} , ?\n\n-------------\n")
     hit_or_stand(user_total, user_hand)
-    check_dealer_hand(dealer_hand, user_total, user_hand)
+    check_dealer_hand(dealer_hand, user_hand)
     winning_hand(user_hand, dealer_hand)
     go_again()
 
 
 player_coins = Coins()
 start_up()
-
-
-
