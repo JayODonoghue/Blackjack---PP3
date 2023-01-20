@@ -22,7 +22,7 @@ def get_username():
     print("Please make sure your username is 3 - 10 characters")
 
     while True:
-        username = input("Please enter your username - ")
+        username = input("Please enter your username - \n")
 
         if len(username) >= 3 and len(username) < 11:
             cprint(f"\nWelcome {username}!", 'blue')
@@ -148,7 +148,7 @@ def hit_or_stand(user_total, user_hand):
         if user_total == 21:
             break
         elif user_total < 21:
-            hit_stand = input("Press [h] to Hit or [s] to Stand -  ")
+            hit_stand = input("Press [h] to Hit or [s] to Stand -  \n")
             if hit_stand.lower() == "h":
                 additional_card(update_deck, user_hand)
                 print(user_hand[-1])
@@ -229,7 +229,7 @@ def go_again():
     else:
         print("\nWould you like to start play another round?")
         while True:
-            round_choice = input("Press [y] to start or [q] to quit - ")
+            round_choice = input("Press [y] to start or [q] to quit - \n")
 
             if round_choice.lower() == "y":
                 clear()
@@ -267,7 +267,7 @@ def place_bet(coins):
     while True:
 
         try:
-            coins.bet = int(input("Place wager - eg 10, 15, 20 -  "))
+            coins.bet = int(input("Place wager - eg 10, 15, 20 -  \n"))
             if coins.bet < 10:
                 print("---\nA minimum bet of 10 coins is required\n")
             elif player_coins.bet > coins.coins:
@@ -300,7 +300,7 @@ def instructions():
     print("Step 6: The outcome\n")
     print("Would you like to start the game?")
     while True:
-        start = input("Press [s] to start or [r] to return to main menu -  ")
+        start = input("Press [s] to start or [r] to return to main menu -  \n")
 
         if start.lower() == "s":
             clear()
@@ -324,7 +324,7 @@ def instructions_choice():
     print("\nWould you like to start game or read instructions?")
 
     while True:
-        choice = input("Press [s] to start or [i] to view instructions - ")
+        choice = input("Press [s] to start or [i] to view instructions - \n")
 
         if choice.lower() == "s":
             clear()
