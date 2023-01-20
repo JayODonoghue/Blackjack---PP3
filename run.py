@@ -2,6 +2,7 @@ import os
 import random
 import time
 import pyfiglet
+from termcolor import cprint
 
 
 def clear():
@@ -17,8 +18,7 @@ def get_username():
     A while loop collects data from the user that will be a string
     3 to 10 characters long
     """
-    print(pyfiglet.figlet_format("\nBLACKJACK\n", font="starwars",
-          justify="center", width=80))
+    cprint(pyfiglet.figlet_format("\nBLACKJACK\n"), 'red')
     print("Please make sure your username is 3 - 10 characters")
 
     while True:
