@@ -353,7 +353,7 @@ def main():
     update_deck = deck()
     deal_cards(update_deck, user_hand)
     deal_cards(update_deck, dealer_hand)
-    print("Dealing\n")
+    cprint(pyfiglet.figlet_format("Dealing\n"), 'green')
     time.sleep(1.0)
     clear()
     print(f"\nPlayer hand is - {user_hand[0]} , {user_hand[1]}")
