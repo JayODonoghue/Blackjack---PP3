@@ -25,7 +25,7 @@ def get_username():
         username = input("Please enter your username - ")
 
         if len(username) >= 3 and len(username) < 11:
-            print(f"\nWelcome {username}!")
+            cprint(f"\nWelcome {username}!", 'blue')
             break
         else:
             print("-------\nInvalid username, 3-10 characters required")
