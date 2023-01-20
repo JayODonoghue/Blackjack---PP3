@@ -265,7 +265,7 @@ def place_bet(coins):
             elif (coins.bet % 5) != 0:
                 print("---\nMust be a multiple of 5\n")
             else:
-                print("No more bets")
+                print("\nNo more bets")
                 time.sleep(0.5)
                 clear()
                 break
