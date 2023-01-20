@@ -218,8 +218,11 @@ def go_again():
     again or to quit retirning to the beginning.
     """
     if player_coins.coins == 0:
-        print("Awh no more coins, game over. Thanks for playing!")
-        time.sleep(3)
+        cprint("\nNo more coins. Thanks for playing!", 'red')
+        time.sleep(1.5)
+        clear()
+        cprint(pyfiglet.figlet_format("\nGOODBYE!"), 'red')
+        time.sleep(2)
         clear()
         player_coins.coins = 1000
         start_up()
@@ -233,6 +236,11 @@ def go_again():
                 main()
                 break
             elif round_choice.lower() == "q":
+                cprint("\nThanks for playing!", 'red')
+                time.sleep(1.5)
+                clear()
+                cprint(pyfiglet.figlet_format("\nGOODBYE!"), 'red')
+                time.sleep(2)
                 clear()
                 player_coins.coins = 1000
                 start_up()
