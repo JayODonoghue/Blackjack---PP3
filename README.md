@@ -1,31 +1,11 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# BLACKJACK
 
-Welcome JAY O DONOGHUE,
+<br/>
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+This is your typical game of Blackjack using python backend programming to complete. The game is aimed at a natural flowing game flow returning as good user experience. Inputs are used throughout provide constant interaction with the user along with cues for any ease of use. The user (you) begins the game with 1000 coins. You then place your wager and draw card. The dealer (computer) gets dealt two cards also however one is hidden. You are then presented with the option to 'hit' or 'stand'. If hit is chosen the user draws another card and if not bust is goven the option  of 'hit' or 'stand' again. If stand is chosen then the dealers cards are shown. If the dealer is under 17 then they have to automatically hit. If they are between 17 and 21 then the dealer and user scores are compared. If either player goes bust, the other wins. The aim is to get as close to 21 as possible. If you reach 21 Blackjack is declared. Otherwise the player with the highest total is the winner. If it is a draw its called a push. Once a winner/loser/draw is determined our winngs/losses will be adjusted accordingly.
 
-## Reminders
+ <br/> 
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+![Blackjack Game](readme-doc/images/amiresponsive-blackjack-image.png)
 
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+[View Blackjack live game on Github pages here](https://blackjack-pp3.herokuapp.com/)
