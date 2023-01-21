@@ -15,3 +15,57 @@ This is your typical game of Blackjack using python backend programming to compl
 ## FLOW CHART
 
 This flow chart was used to design the game.
+
+![Blackjack Flow Chart](readme-doc/images/blackjack-flowchart.png)
+
+<br/>
+
+## Features
+---
+
+<br/>
+
+### Start up
+
+![Blackjack Start up](readme-doc/images/blackjack_home_screen_image.png)
+
+The game begins with the word Blackjack in red ASCII text. It then tells you to input your username. This input will need to be between 3 and 10 characters. If invalid data is given, a message is returned using a while loop reiterating the conditions for it to be successful.
+
+<br/>
+
+### Instructions choice
+
+The user is given the option to start the game or read the instruction. Invalid data will not be accepted. This again is done through a while loop. If s is entered then move on, if i chosen then the user is brought to the instructions page.
+
+<br/>
+
+### Instructions
+
+The user is shown the way the game works and then given the choice of playing the game or returing to the start up scrren, again using an input for the response.
+
+<br/>
+
+### Place bet
+
+The user is asked to input a wager that has to be a minimum of 10 and and a multiple of 5. A Value Error is returned if not inputted correctly. The users coins are shown at the top left hand corner of the screen. This figure increase and decreases depending on whether you win or lose.
+
+<br/>
+
+### Cards are dealt and hit or stand option given
+
+The cards are dealt using the random module.  One of the dealer's cards is hidden. An option is presented to the user, to hit or stand. If h is entered then an additional card is dealt and the users total is adjusted to accomodate the new card. If stand it moves on to check the dealers hand.
+
+<br/>
+
+### Check dealer card and winnning hand
+
+If user is not gone bust then the dealers hand is revealed. If the dealer is between 17 and 21 it automatically stands and the total scores are compared in winng hand function. If the dealer's total is under 17 then they draw an additional card until they either go bust or go higher than 17, this is done using a while loop. The winning hand function compares the 2 totals and declares a winner based on if/elif statements.
+
+<br/>
+
+### Go again
+
+If the user runs out of coins then the game resets and goes back to the start up screen. GOODBYE is printed for a brief time using the time module and using ASCII text. If the user still has coins left then he is giving the option to play again or to quit. If play again is entered the main function is called and a new is started. If q is chosen the user returns to the start up screen.
+
+<br/>
+
