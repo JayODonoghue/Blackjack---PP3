@@ -81,6 +81,13 @@ If the user runs out of coins then the game resets and goes back to the start up
 
 <br/>
 
+### Python modeules used:
+  * import os - used to clear system once implemented in the clear function.
+  * import random - used to randomly choose a card for the deck.
+  * import time - used time.sleep to display text for brief periods.
+  * import pyfiglet - used to add ASCII text 
+  * import termcolor -  used to add color to text
+
 ## Future Implementations:
   * Use ASCII to actually display cards rather than stating them in standard text.
   * Use a class for card which would reduce a lot of lines of code resulting in it being more efficient.
