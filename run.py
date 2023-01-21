@@ -258,7 +258,7 @@ def place_bet(coins):
     otherwise a valuerror response is printed.
     """
 
-    cprint(f"{USERNAME}'s total coins = {coins.coins}\n\n", 'green')
+    cprint(f"{USERNAME}'s total coins = {coins.coins}\n\n", 'blue')
     cprint("Place your bets\n", 'light_red')
     time.sleep(0.5)
     print("A minimum bet of 10 coins per hand is required.")
