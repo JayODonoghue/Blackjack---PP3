@@ -88,9 +88,33 @@ If the user runs out of coins then the game resets and goes back to the start up
   * import pyfiglet - used to add ASCII text 
   * import termcolor -  used to add color to text
 
+  <br/>
+
 ## Future Implementations:
   * Use ASCII to actually display cards rather than stating them in standard text.
   * Use a class for card which would reduce a lot of lines of code resulting in it being more efficient.
   * When dealing is displayed on the screen an audio sound of cards being shuffled would be a nice additional feature.
   * Create a virtual casino by adding more game options to choose from.
+
+  <br/>
+
+## Technologies Used
+
+<br/>
+
+### Languages Used
+
+<br/>
+
+* Python
+
+<br/>
+
+### Frameworks and Programs Used
+
+* Git - This was used for version control.
+* Github - This was used to save and store all the files for the website.
+* Am I Responsive - This was used to show the website on a variety of different screens.
+* Code Institute template was used to create this project on Gitpod.
+* Heroku was used for deployment.
   
