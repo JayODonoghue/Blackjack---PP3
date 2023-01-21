@@ -67,13 +67,15 @@ The cards are dealt using the random module.  One of the dealer's cards is hidde
 
 ### Check dealer card and winnning hand
 
-![Check dealers hand and compare hands](readme-doc/images/)
+![Check dealers hand and compare hands](readme-doc/images/dealer-cards-and-winning-hand-image.png)
 
 If user is not gone bust then the dealers hand is revealed. If the dealer is between 17 and 21 it automatically stands and the total scores are compared in winng hand function. If the dealer's total is under 17 then they draw an additional card until they either go bust or go higher than 17, this is done using a while loop. The winning hand function compares the 2 totals and declares a winner based on if/elif statements.
 
 <br/>
 
 ### Go again
+
+![Go again, print goodbye when finished](readme-doc/images/go-again-goodbye-image.png)
 
 If the user runs out of coins then the game resets and goes back to the start up screen. GOODBYE is printed for a brief time using the time module and using ASCII text. If the user still has coins left then he is giving the option to play again or to quit. If play again is entered the main function is called and a new is started. If q is chosen the user returns to the start up screen.
 
