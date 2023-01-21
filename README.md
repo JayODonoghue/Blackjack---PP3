@@ -12,6 +12,56 @@ This is your typical game of Blackjack using python backend programming to compl
 
 ---
 
+## CONTENT
+
+* [FLow Chart](#flow-chart)
+
+<br/>
+
+* [Features](#features)
+  * [Start up](#start-up)
+  * [Instructions choice](#instructions-choice)
+  * [Instructions](#instructions)
+  * [Place bet](#place-bet)
+  * [Cards are dealt and hit or stand option given](#cards-are-dealt-and-hit-or-stand-option-given)
+  * [Check dealer card and winnning hand](#check-dealer-card-and-winnning-hand)
+  * [Go again](#go-again)
+  * [Python modules used](#python-modeules-used)
+
+<br/>
+
+  * [Future Implementations](#future-implementations)
+
+<br/>
+
+* [Technologies Used](#technologies-used)
+    * [Languages Used](#languages-used)
+    * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+
+<br/>
+
+* [Testing](#testing)
+    * [CI Python Linter](#CI-Python-Linter)
+    * [Manual Testing](#manual-testing)
+    * [Solved Bugs](#solved-bugs)
+    * [Known Bugs](#known-bugs)
+   
+<br/>
+
+* [Deployment](#deployment)
+
+<br/>
+
+* [Credits](#credits)
+  * [Layout](#layout)
+  * [Content](#content)
+  * [Code](#code)
+  * [Acknowledgements](#acknowledgements)
+
+---
+
+<br/>
+
 ## FLOW CHART
 
 This flow chart was used to design the game.
@@ -21,7 +71,6 @@ This flow chart was used to design the game.
 <br/>
 
 ## Features
----
 
 <br/>
 
@@ -81,7 +130,7 @@ If the user runs out of coins then the game resets and goes back to the start up
 
 <br/>
 
-### Python modeules used:
+### Python modules used:
   * import os - used to clear system once implemented in the clear function.
   * import random - used to randomly choose a card for the deck.
   * import time - used time.sleep to display text for brief periods.
