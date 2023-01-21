@@ -258,8 +258,8 @@ def place_bet(coins):
     otherwise a valuerror response is printed.
     """
 
-    print(f"{USERNAME}'s total coins = {coins.coins}\n\n")
-    print("Place your bets\n")
+    cprint(f"{USERNAME}'s total coins = {coins.coins}\n\n", 'green')
+    cprint("Place your bets\n", 'light_red')
     time.sleep(0.5)
     print("A minimum bet of 10 coins per hand is required.")
     print("The player may not place a wager that exceeds their total coins.")
@@ -275,7 +275,7 @@ def place_bet(coins):
             elif (coins.bet % 5) != 0:
                 print("---\nMust be a multiple of 5\n")
             else:
-                print("\nNo more bets")
+                cprint("\nNo more bets\n", 'light_red')
                 time.sleep(0.5)
                 clear()
                 break
