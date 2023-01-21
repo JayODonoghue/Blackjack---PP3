@@ -117,4 +117,18 @@ If the user runs out of coins then the game resets and goes back to the start up
 * Am I Responsive - This was used to show the website on a variety of different screens.
 * Code Institute template was used to create this project on Gitpod.
 * Heroku was used for deployment.
+
+## Testing
+
+<br/>
+
+### CI Python Linter
+
+<br/>
+
+The CI Python Linter was used on every aspect of Python in the project. No errors were returned.
+
+![CI Python Linter Report](readme-doc/images/)
+
+<br/>
   
