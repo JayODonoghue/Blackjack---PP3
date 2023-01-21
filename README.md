@@ -35,11 +35,15 @@ The game begins with the word Blackjack in red ASCII text. It then tells you to 
 
 ### Instructions choice
 
+![Instructions choice](readme-doc/images/instructions-choice-image.png)
+
 The user is given the option to start the game or read the instruction. Invalid data will not be accepted. This again is done through a while loop. If s is entered then move on, if i chosen then the user is brought to the instructions page.
 
 <br/>
 
 ### Instructions
+
+![Instructions](readme-doc/images/instructions-image.png)
 
 The user is shown the way the game works and then given the choice of playing the game or returing to the start up scrren, again using an input for the response.
 
@@ -47,17 +51,23 @@ The user is shown the way the game works and then given the choice of playing th
 
 ### Place bet
 
+![Place bet](readme-doc/images/place-bet-image.png)
+
 The user is asked to input a wager that has to be a minimum of 10 and and a multiple of 5. A Value Error is returned if not inputted correctly. The users coins are shown at the top left hand corner of the screen. This figure increase and decreases depending on whether you win or lose.
 
 <br/>
 
 ### Cards are dealt and hit or stand option given
 
+![Cards are dealt and hit or stay input](readme-doc/images/hit-or-stay-image.png)
+
 The cards are dealt using the random module.  One of the dealer's cards is hidden. An option is presented to the user, to hit or stand. If h is entered then an additional card is dealt and the users total is adjusted to accomodate the new card. If stand it moves on to check the dealers hand.
 
 <br/>
 
 ### Check dealer card and winnning hand
+
+![Check dealers hand and compare hands](readme-doc/images/)
 
 If user is not gone bust then the dealers hand is revealed. If the dealer is between 17 and 21 it automatically stands and the total scores are compared in winng hand function. If the dealer's total is under 17 then they draw an additional card until they either go bust or go higher than 17, this is done using a while loop. The winning hand function compares the 2 totals and declares a winner based on if/elif statements.
 
