@@ -126,11 +126,33 @@ If the user runs out of coins then the game resets and goes back to the start up
 
 ### CI Python Linter
 
-<br/>
-
 The CI Python Linter was used on every aspect of Python in the project. No errors were returned.
 
 ![CI Python Linter Report](readme-doc/images/ci-python-linter-image.png)
 
 <br/>
-  
+
+### Manual Testing
+
+* I have gone through every input making sure invalid inputs will not be accepted. Invalid inputs: strings when numbers required, out of bound inputs, below minimum  and maximum requirements inputs and in the place bet function an input that is not a multiple of 5 or exceeds the total coins of the user.
+* Tested in my local terminal and the Code Institute Heroku terminal.
+
+<br/>  
+
+### Solved Bugs
+
+<br/>
+
+1. When implementing the player_coins variable in the main() function the wager amount was not being added or subtracted after every round. However once I removed it from the main function and start_up function and put it in the global scope it was resolved.
+
+2. When an ace card was dealt the code I had written for aces was not working correctly distinguishing between 1 and 11. After doing some research I found a way to count the aces, so if an 'A' is drawn the ace count goes up one. If the value is over 21 then the total minuses 10 and the ace count subtracts 1.
+
+3. In the check_dealer_hand, when the user went bust it was reporting an error. Throught the help of my mentor we realised it was a simple fix of g=the go_again() function required to be called up as it was leading to nothing otherwise.
+
+<br/>
+
+### Known Bugs
+
+<br/>
+
+I have no unresolved bugs.
