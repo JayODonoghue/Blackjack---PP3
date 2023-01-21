@@ -9,3 +9,9 @@ This is your typical game of Blackjack using python backend programming to compl
 ![Blackjack Game](readme-doc/images/amiresponsive-blackjack-image.png)
 
 [View Blackjack live game on Github pages here](https://blackjack-pp3.herokuapp.com/)
+
+---
+
+## FLOW CHART
+
+This flow chart was used to design the game.
