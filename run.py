@@ -105,36 +105,37 @@ def check_dealer_hand(dealer_hand, user_hand):
         go_again()
     else:
         show_dealer_card = dealer_hand[1]
-        print(f"Dealer's second card is ... {show_dealer_card}")
+        print(f"\nDealer's second card is ... {show_dealer_card}")
         print(f"Dealer's hand is {dealer_hand[0]}, {dealer_hand[1]}")
         dealer_total = cards_total(dealer_hand)
-        cprint(f"\nDealer total is - {dealer_total}\n\n", 'yellow')
+        cprint(f"Dealer total is - {dealer_total}\n", 'yellow')
 
     if cards_total(user_hand) == 21 and cards_total(dealer_hand) != 21:
-        print("Blackjack")
+        print("\nBlackjack")
     elif cards_total(dealer_hand) == 21 and cards_total(user_hand) != 21:
-        print("Blackjack")
+        print("\nBlackjack")
     elif cards_total(dealer_hand) == 21 and cards_total(user_hand) == 21:
-        print("Push")
+        cprint("\nPush", 'green')
     else:
         while True:
             if dealer_total >= 17:
-                print("Dealer stands")
+                print("\nDealer stands")
                 break
             elif dealer_total < 17:
                 additional_card(update_deck, dealer_hand)
-                print(dealer_hand[-1])
+                print(f"Dealer draws {dealer_hand[-1]}")
                 new_dealer_total = cards_total(dealer_hand)
-                print(new_dealer_total)
+                cprint(f"Dealer total is - {new_dealer_total}\n", 'yellow')
                 if new_dealer_total > 21:
-                    print("dealer has gone bust")
+                    print("\nDealer has gone bust")
+                    cprint("User wins", 'green')
                     player_coins.win_bet()
                     break
                 elif new_dealer_total == 21:
-                    print("Blackjack")
+                    print("\nBlackjack")
                     break
                 elif new_dealer_total >= 17 and new_dealer_total != 21:
-                    print("Dealer stands")
+                    print("\nDealer stands")
                     break
 
 
@@ -151,11 +152,12 @@ def hit_or_stand(user_total, user_hand):
             hit_stand = input("Press [h] to Hit or [s] to Stand -  \n")
             if hit_stand.lower() == "h":
                 additional_card(update_deck, user_hand)
-                print(user_hand[-1])
+                print(f"\n{USERNAME} draws {user_hand[-1]}")
                 new_user_total = cards_total(user_hand)
-                print(new_user_total)
+                cprint(f"Player total is - {new_user_total}\n", 'yellow')
                 if new_user_total > 21:
-                    print("User has gone bust.\nDealer wins")
+                    print("User has gone bust")
+                    cprint("Dealer wins", 'green')
                     player_coins.lose_bet
                     break
                 elif new_user_total == 21:
@@ -174,18 +176,18 @@ def winning_hand(user_hand, dealer_hand):
     """
     if cards_total(user_hand) < 21 and cards_total(dealer_hand) < 21:
         if cards_total(user_hand) > cards_total(dealer_hand):
-            print("user wins")
+            cprint("User wins", 'green')
             player_coins.win_bet()
         elif cards_total(dealer_hand) > cards_total(user_hand):
-            print("dealer wins")
+            cprint("Dealer wins", 'green')
             player_coins.lose_bet()
         elif cards_total(user_hand) == cards_total(dealer_hand):
-            print("push")
+            cprint("Push", 'green')
     elif cards_total(dealer_hand) == 21 and cards_total(user_hand) != 21:
-        print("Dealer wins")
+        cprint("Dealer wins", 'green')
         player_coins.lose_bet()
     elif cards_total(user_hand) == 21 and cards_total(dealer_hand) != 21:
-        print("User wins")
+        cprint("User wins", 'green')
         player_coins.win_bet()
 
 
@@ -219,7 +221,7 @@ def go_again():
     """
     if player_coins.coins == 0:
         cprint("\nNo more coins. Thanks for playing!", 'red')
-        time.sleep(1.5)
+        time.sleep(2.5)
         clear()
         cprint(pyfiglet.figlet_format("\nGOODBYE!"), 'red')
         time.sleep(2)
