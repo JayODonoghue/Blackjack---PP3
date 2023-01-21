@@ -291,15 +291,34 @@ def instructions():
     Lists out instructions and gives user choice to play
     or return to home screen, provided correct data in inputted.
     """
-    print("\nInstructions\n")
-    print("Step 1: Put down your bet\n")
-    print("")
-    print("Step 2: Get your cards dealt\n")
-    print("Step 3: Decide when you want to 'hit' or 'stand'\n")
-    print("Step 4(a): 'Hit'\n")
-    print("Step 4(b): 'Stand'\n")
-    print("Step 5: Understand the opponent's hand\n")
-    print("Step 6: The outcome\n")
+    cprint("\nInstructions\n", 'cyan')
+    print("Step 1: Put down your bet.")
+    print("First of all, place your wager. This wager must be a multiple"
+          " of five and be a minimum of 10 coins")
+    print("\nStep 2: Get your cards dealt.")
+    print("You are dealt 2 cards and shown your total. However only"
+          " one of the dealers card is shown and one is hidden"
+          " Please note that an ace can be valued at 1 or 11 depending"
+          " on your total, if you exceed 21 and have an ace it will be 1,"
+          " otherwise it wil be 11")
+    print("\nStep 3: Decide when you want to 'hit' or 'stand'.")
+    print("You will then be given the option to stay on the total you have"
+          "or to hit and draw another card")
+    print("\nStep 4(a): 'Hit'.")
+    print("Another card is added and your new total is calculated")
+    print("\nStep 4(b): 'Stand'.")
+    print("Stay with the total you have. Reveal dealer's second card")
+    print("\nStep 5: Understand the opponent's hand")
+    print("The dealer's total is calculated. If the dealer's total is under 17"
+          " then the dealer will automatically have to hit. If the dealer is"
+          " between 17 and 21 the dealer stands")
+    print("\nStep 6: The outcome.")
+    print("The aim of the game is to get as close to 21 as possible. If either"
+          " the user of dealer go over 21 its bust. Which means the other"
+          " player wins. If someone gets 21 its Blackjack and the opponents"
+          " hand is compared. If the totals are equal to each other it's a"
+          " push (which means draw). If both players are below 21 then it"
+          " simply comes down to whoever has the highest total.")
     print("Would you like to start the game?")
     while True:
         start = input("Press [s] to start or [r] to return to main menu -  \n")
