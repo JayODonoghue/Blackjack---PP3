@@ -155,4 +155,4 @@ The CI Python Linter was used on every aspect of Python in the project. No error
 
 <br/>
 
-I have no unresolved bugs.
+In the run.py file no line length exceeds 80. However in the terminal some words in the instructions carry on to the next line which is not aesthetically pleasing. This can be solved with shorter sentences and more line breaks.
