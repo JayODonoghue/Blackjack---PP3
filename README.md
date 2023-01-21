@@ -118,6 +118,8 @@ If the user runs out of coins then the game resets and goes back to the start up
 * Code Institute template was used to create this project on Gitpod.
 * Heroku was used for deployment.
 
+<br/>
+
 ## Testing
 
 <br/>
@@ -128,7 +130,7 @@ If the user runs out of coins then the game resets and goes back to the start up
 
 The CI Python Linter was used on every aspect of Python in the project. No errors were returned.
 
-![CI Python Linter Report](readme-doc/images/)
+![CI Python Linter Report](readme-doc/images/ci-python-linter-image.png)
 
 <br/>
   
