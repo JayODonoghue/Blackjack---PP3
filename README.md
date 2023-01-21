@@ -177,3 +177,33 @@ and then click on **Create app**.
 - To deploy manually go to the **Manual deploy** section below and click **Deploy Branch**. Just remember you will need to do this everytime you make a change to your
 code on Github.
 - Below you will see **your app was sucessfully deployed** with a **view** button below this that will take you to the url of your deployed app.
+
+<br/>
+
+## Credits
+
+### Layout
+* The layout of the site was established by me. 
+* The layout of this readme file is based off my previous projects readme.
+
+<br/>
+
+### Content 
+* The content was written by Jay O'Donoghue.
+
+<br/>
+
+### Code
+* I watched a tutorial by [Learn Learn Scratch Tutorials](https://www.youtube.com/watch?v=U1aUteSg2a4) which showed me how to use ASCII text.
+* I used code from [Gayan Samarakoon](https://samarakoon-gayan.medium.com/a-game-of-black-jack-on-python-as-a-fun-exercise-3cd54efb9d83) to create the class for the coins and to adjust for the aces.
+* I visited the website [Scaler](https://www.scaler.com/topics/how-to-clear-screen-in-python/) to figure out how to clear screen module.
+* Stack overflow helped in showing me how to use pyfiglet, time and random modules.
+* For the deployment section of this readme file I have used the same process as previous students. 
+
+<br/>
+
+### Acknowledgements
+* I would like to thank my mentor Chris in guiding me in the right direction and helping whenever I had a query.
+* I would like to thank the people who reviewed my code in peer-code-review on Slack.
+* I would like to thank the tutor support people who answered all the queries I had throughout the project.
+* I would like to thank the cohort lead and the cohort Facilitator on checking up and keeping everyone on schedule.
