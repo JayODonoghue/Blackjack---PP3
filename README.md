@@ -81,3 +81,9 @@ If the user runs out of coins then the game resets and goes back to the start up
 
 <br/>
 
+## Future Implementations:
+  * Use ASCII to actually display cards rather than stating them in standard text.
+  * Use a class for card which would reduce a lot of lines of code resulting in it being more efficient.
+  * When dealing is displayed on the screen an audio sound of cards being shuffled would be a nice additional feature.
+  * Create a virtual casino by adding more game options to choose from.
+  
